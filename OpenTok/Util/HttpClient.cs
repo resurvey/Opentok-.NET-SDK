@@ -19,6 +19,8 @@ using OpenTokSDK.Exception;
 
 namespace OpenTokSDK.Util
 {
+    using MoarUtils.Utils;
+
     /**
      * For internal use.
      */
@@ -28,7 +30,7 @@ namespace OpenTokSDK.Util
         private int apiKey;
         private string apiSecret;
         private string server;
-        public bool debug = false;
+        public bool debug = true; // todo : read from config file
         private readonly DateTime unixEpoch = new DateTime(
           1970, 1, 1, 0, 0, 0, DateTimeKind.Utc
         );
@@ -257,7 +259,8 @@ namespace OpenTokSDK.Util
             if (this.debug)
             {
                 var now = Convert.ToString(CurrentTime());
-                Console.WriteLine("[{0}] {1}", now, message);
+                //Console.WriteLine("[{0}] {1}", now, message);
+                LogIt.D(message);
             }
         }
 

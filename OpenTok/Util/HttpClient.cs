@@ -93,7 +93,7 @@ namespace OpenTokSDK.Util {
           }
         }
       } catch (WebException e) {
-        LogIt.E(e);
+        LogIt.W(e);
         DebugLog("WebException Status: " + e.Status + ", Message: " + e.Message);
 
         response = (HttpWebResponse)e.Response;
@@ -110,7 +110,7 @@ namespace OpenTokSDK.Util {
 
         throw new OpenTokWebException("Error with request submission", e);
       } catch (System.Exception ex) {
-        LogIt.E(ex);
+        LogIt.W(ex);
         throw ex;
       }
 
